@@ -19,6 +19,14 @@
                     {!! $project->getTypeBadge() !!}
                 </p>
             </div>
+
+            <div class="col-4">
+                <p>
+                    <strong>Tecnologie:</strong><br>
+                    {!! $project->getTechnologyBadges() !!}
+                </p>
+            </div>
+
             <div class="col-4">
                 <p>
                     <strong>Slug:</strong><br>
