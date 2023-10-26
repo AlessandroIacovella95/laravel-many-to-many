@@ -59,9 +59,8 @@ class ProjectController extends Controller
 
         $project->save();
 
-        if (Arr::exists($data, "technologies")) {
+        if (Arr::exists($data, "technologies"))
             $project->Technologies()->attach($data["technologies"]);
-        }
 
 
         return redirect()->route("admin.projects.show", $project);
