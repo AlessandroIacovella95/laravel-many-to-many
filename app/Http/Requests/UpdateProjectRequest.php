@@ -26,6 +26,7 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'type_id' => ['nullable', 'exists:types,id'],
+            'technolgies' => ['nullable', 'exists:technolgies,id'],
             'description' => ['required', 'string'],
             'url' => ['required', 'string'],
         ];
@@ -38,6 +39,8 @@ class UpdateProjectRequest extends FormRequest
             'title.string' => 'Il titolo deve essere una stringa',
 
             'type_id.exists' => 'Il tipo inserito non è valido',
+
+            'technolgies.exists' => 'Le tecnologie inserita non sono valide',
 
             'description.required' => 'La descrizione è obbligatoria',
             'description.string' => 'La descrizione deve essere una stringa',
