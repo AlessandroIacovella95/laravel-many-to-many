@@ -49,7 +49,7 @@
                         <div class="col-2">
                             <input type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}"
                                 value="{{ $technology->id }}" class="form-check-control my-2"
-                                @if (in_array($technology->id, old('technologies') ?? [])) checked @endif>
+                                @if (in_array($technology->id, old('technologies', []))) checked @endif>
                             <label for="technology-{{ $technology->id }}">{{ $technology->label }}</label>
                         </div>
                     @endforeach
