@@ -6,6 +6,11 @@
         <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-outline-warning">Modifica</a>
 
         <h1 class="my-3">{{ $project->title }}</h1>
+        @if (session('message'))
+            <div class="alert alert-{{ session('message_type') ?? 'info' }}">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="row g-5">
             <div class="col-12">
                 <p>

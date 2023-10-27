@@ -6,6 +6,11 @@
         <a class="btn btn-outline-success" href="{{ route('admin.technologies.index') }}">Vai alle Tecnologie</a>
 
         <h1 class="my-3">Progetti</h1>
+        @if (session('message'))
+            <div class="alert alert-{{ session('message_type') ?? 'info' }}">
+                {{ session('message') }}
+            </div>
+        @endif
         {{ $projects->links('pagination::bootstrap-5') }}
 
         <table class="table">

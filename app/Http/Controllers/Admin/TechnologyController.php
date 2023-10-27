@@ -49,7 +49,10 @@ class TechnologyController extends Controller
 
         $technology->save();
 
-        return redirect()->route("admin.technologies.show", $technology);
+        return redirect()->route("admin.technologies.show", $technology)
+            ->with('message_type', 'success')
+            ->with('message', 'Tecnologia creata con successo');
+        ;
     }
 
     /**
@@ -90,19 +93,24 @@ class TechnologyController extends Controller
 
         $technology->save();
 
-        return redirect()->route("admin.technologies.show", $technology);
-
+        return redirect()->route("admin.technologies.show", $technology)
+            ->with('message_type', 'success')
+            ->with('message', 'Tecnologia modificata con successo');
+        ;
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * *@return \Illuminate\Http\Response
      */
     public function destroy(Technology $technology)
     {
         $technology->delete();
-        return redirect()->route("admin.technologies.index");
+        return redirect()->route("admin.technologies.index")
+            ->with('message_type', 'danger')
+            ->with('message', 'Tecnologia eliminata con successo');
+        ;
     }
 }
