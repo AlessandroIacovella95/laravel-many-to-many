@@ -64,7 +64,10 @@ class ProjectController extends Controller
         }
 
 
-        return redirect()->route("admin.projects.show", $project);
+        return redirect()->route("admin.projects.show", $project)
+            ->with('message_type', 'success')
+            ->with('message', 'Progetto creato con successo');
+        ;
     }
 
     /**
@@ -98,7 +101,7 @@ class ProjectController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * *@return \Illuminate\Http\Response
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
@@ -118,8 +121,10 @@ class ProjectController extends Controller
             $project->technologies()->detach();
         }
 
-        return redirect()->route("admin.projects.show", $project);
-
+        return redirect()->route("admin.projects.show", $project)
+            ->with('message_type', 'success')
+            ->with('message', 'Progetto modificato con successo');
+        ;
     }
 
     /**
@@ -132,6 +137,9 @@ class ProjectController extends Controller
     {
         $project->technologies()->detach();
         $project->delete();
-        return redirect()->route("admin.projects.index");
+        return redirect()->route("admin.projects.index")
+            ->with('message_type', 'danger')
+            ->with('message', 'Progetto eliminato con successo');
+        ;
     }
 }
