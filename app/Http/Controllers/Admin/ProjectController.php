@@ -59,8 +59,9 @@ class ProjectController extends Controller
 
         $project->save();
 
-        if (Arr::exists($data, "technologies"))
-            $project->Technologies()->attach($data["technologies"]);
+        if (Arr::exists($data, "technologies")) {
+            $project->technologies()->attach($data["technologies"]);
+        }
 
 
         return redirect()->route("admin.projects.show", $project);
@@ -112,9 +113,9 @@ class ProjectController extends Controller
         $project->save();
 
         if (Arr::exists($data, "technologies")) {
-            $project->Technologies()->sync($data["technologies"]);
+            $project->technologies()->sync($data["technologies"]);
         } else {
-            $project->Technologies()->detach();
+            $project->technologies()->detach();
         }
 
         return redirect()->route("admin.projects.show", $project);
@@ -129,7 +130,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project->Technologies()->detach();
+        $project->technologies()->detach();
         $project->delete();
         return redirect()->route("admin.projects.index");
     }

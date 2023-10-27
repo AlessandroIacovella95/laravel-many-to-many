@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'type_id' => ['nullable', 'exists:types,id'],
-            'technolgies' => ['nullable', 'exists:technolgies,id'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
             'description' => ['required', 'string'],
             'url' => ['required', 'string'],
         ];
@@ -40,7 +40,7 @@ class StoreProjectRequest extends FormRequest
 
             'type_id.exists' => 'Il tipo inserito non è valido',
 
-            'technolgies.exists' => 'Le tecnologie inserita non sono valide',
+            'technologies.exists' => 'Le tecnologie inserita non sono valide',
 
             'description.required' => 'La descrizione è obbligatoria',
             'description.string' => 'La descrizione deve essere una stringa',
