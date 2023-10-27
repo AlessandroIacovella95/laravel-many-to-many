@@ -3,6 +3,8 @@
 @section('content')
     <div class="container mt-5">
         <a class="btn btn-outline-success" href="{{ route('admin.technologies.create') }}">Crea Tecnologia</a>
+        <a class="btn btn-outline-success" href="{{ route('admin.projects.index') }}">Vai ai progetti</a>
+
         <h1 class="my-3">Tecnologie</h1>
         <table class="table">
             <thead>
