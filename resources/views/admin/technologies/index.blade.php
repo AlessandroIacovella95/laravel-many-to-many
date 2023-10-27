@@ -12,7 +12,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Tecnologia</th>
                     <th scope="col">Colore</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="custom"></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,15 +22,20 @@
                         <td>{{ $technology->label }}</td>
                         <td>{{ $technology->color }}</td>
                         <td>
-                            <a href="{{ route('admin.technologies.show', $technology) }}">Mostra</a><br>
-                            <a href="{{ route('admin.technologies.edit', $technology) }}">Modifica</a><br>
-                            <a href="#" data-bs-toggle="modal"
-                                data-bs-target="#delete-technologies-modal-{{ $technology->id }}">Elimina</a>
+                            <div class="d-flex">
+                                <a href="{{ route('admin.technologies.show', $technology) }}"><i
+                                        class="text-dark fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="{{ route('admin.technologies.edit', $technology) }}"><i
+                                        class="mx-3 text-dark fa-solid fa-pencil"></i></a>
+                                <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#delete-technologies-modal-{{ $technology->id }}"><i
+                                        class="text-danger fa-solid fa-trash"></i></a>
+                            </div>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6">Non ci sono progetti</td>
+                        <td colspan="6">Non ci sono Tecnologie</td>
                     </tr>
                 @endforelse
             </tbody>

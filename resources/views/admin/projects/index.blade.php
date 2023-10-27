@@ -6,6 +6,8 @@
         <a class="btn btn-outline-success" href="{{ route('admin.technologies.index') }}">Vai alle Tecnologie</a>
 
         <h1 class="my-3">Progetti</h1>
+        {{ $projects->links('pagination::bootstrap-5') }}
+
         <table class="table">
             <thead>
                 <tr>
@@ -30,10 +32,15 @@
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->url }}</td>
                         <td>
-                            <a href="{{ route('admin.projects.show', $project) }}">Mostra</a>
-                            <a href="{{ route('admin.projects.edit', $project) }}">Modifica</a>
-                            <a href="#" data-bs-toggle="modal"
-                                data-bs-target="#delete-project-modal-{{ $project->id }}">Elimina</a>
+                            <div class="d-flex">
+                                <a href="{{ route('admin.projects.show', $project) }}"><i
+                                        class="text-dark fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a class="mx-3" href="{{ route('admin.projects.edit', $project) }}"><i
+                                        class="text-dark fa-solid fa-pencil"></i></a>
+                                <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#delete-project-modal-{{ $project->id }}"><i
+                                        class="text-danger fa-solid fa-trash"></i></a>
+                            </div>
                         </td>
                     </tr>
                 @empty
@@ -43,6 +50,7 @@
                 @endforelse
             </tbody>
         </table>
+        {{ $projects->links('pagination::bootstrap-5') }}
     </div>
 @endsection
 
