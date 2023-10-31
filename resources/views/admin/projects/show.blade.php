@@ -14,7 +14,7 @@
 
         <div class="row g-5">
             <div class="col-4">
-                <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="" class="">
+                <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="" class="img_fluid">
             </div>
             <div class="col-8">
                 <div class="row">

@@ -29,16 +29,23 @@
             </div>
 
             <div class="col-12">
-                <label for="cover_image" class="from-label">Immagine</label>
-                <input type="file" name="cover_image" id="cover_image"
-                    class="form-control @error('cover_image') is-invalid @enderror">
-                @error('cover_image')
-                    <div class="invalid-feedback">
-                        {{ $message }}
+                <div class="row">
+                    <div class="col-8">
+                        <label for="cover_image" class="from-label">Immagine</label>
+                        <input type="file" name="cover_image" id="cover_image"
+                            class="form-control @error('cover_image') is-invalid @enderror"
+                            value="{{ old('cover_image') }}">
+                        @error('cover_image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                @enderror
+                    <div class="col-4">
+                        <img src="" alt="" class="img-fluid" id="cover_image_preview">
+                    </div>
+                </div>
             </div>
-
             <div class="col-12 mt-3">
                 <label for="type_id" class="from-label">Tipo</label>
                 <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
@@ -98,4 +105,20 @@
             </div>
         </form>
     </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        const inputFileELement = document.getElementById('cover_image')
+        const coverImagePreview = document.getElementById('cover_image_preview')
+
+        if (!coverImagePreview.getAttribute('src')) {
+            coverImagePreview.src = "https://placehold.co/400"
+        }
+
+        inputFileELement.addEventListener('change', function() {
+            const [file] = this.files
+            coverImagePreview.src = URL.createObjectURL(file);
+        })
+    </script>
 @endsection
