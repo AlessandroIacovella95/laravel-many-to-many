@@ -124,7 +124,6 @@ class ProjectController extends Controller
         return redirect()->route("admin.projects.show", $project)
             ->with('message_type', 'success')
             ->with('message', 'Progetto modificato con successo');
-        ;
     }
 
     /**
@@ -138,7 +137,7 @@ class ProjectController extends Controller
         $project->delete();
         return redirect()->route("admin.projects.index")
             ->with('message_type', 'danger')
-            ->with('message', 'Progetto eliminato con successo');
+            ->with('message', 'Progetto messo nel cestino con successo');
         ;
     }
 
@@ -160,7 +159,10 @@ class ProjectController extends Controller
         $project = Project::onlyTrashed()->findOrFail($id);
         $project->technologies()->detach();
         $project->forceDelete();
-        return redirect()->route("admin.projects.trash.index");
+        return redirect()->route("admin.projects.trash.index")
+            ->with('message_type', 'danger')
+            ->with('message', 'Progetto eliminato con successo');
+        ;
     }
 
 
@@ -168,6 +170,8 @@ class ProjectController extends Controller
     {
         $project = Project::onlyTrashed()->findOrFail($id);
         $project->restore();
-        return redirect()->route("admin.projects.trash.index");
+        return redirect()->route("admin.projects.trash.index")
+            ->with('message_type', 'success')
+            ->with('message', 'Progetto ripristinato con successo');
     }
 }

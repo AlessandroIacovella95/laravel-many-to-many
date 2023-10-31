@@ -9,6 +9,9 @@
                 {{ session('message') }}
             </div>
         @endif
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
         {{ $projects->links('pagination::bootstrap-5') }}
 
         <table class="table">
