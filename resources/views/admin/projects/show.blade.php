@@ -11,37 +11,45 @@
                 {{ session('message') }}
             </div>
         @endif
+
         <div class="row g-5">
+            <div class="col-4">
+                <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="" class="">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <p>
+                            <strong>Tipo:</strong><br>
+                            {!! $project->getTypeBadge() !!}
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p>
+                            <strong>Tecnologie:</strong><br>
+                            {!! $project->getTechnologyBadges() !!}
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p>
+                            <strong>Slug:</strong><br>
+                            {{ $project->slug }}
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <p>
+                            <strong>Link:</strong><br>
+                            {{ $project->url }}
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="col-12">
                 <p>
                     <strong>Descrizione:</strong><br>
                     {{ $project->description }}
-                </p>
-            </div>
-            <div class="col-4">
-                <p>
-                    <strong>Tipo:</strong><br>
-                    {!! $project->getTypeBadge() !!}
-                </p>
-            </div>
-
-            <div class="col-4">
-                <p>
-                    <strong>Tecnologie:</strong><br>
-                    {!! $project->getTechnologyBadges() !!}
-                </p>
-            </div>
-
-            <div class="col-4">
-                <p>
-                    <strong>Slug:</strong><br>
-                    {{ $project->slug }}
-                </p>
-            </div>
-            <div class="col-4">
-                <p>
-                    <strong>Link:</strong><br>
-                    {{ $project->url }}
                 </p>
             </div>
         </div>

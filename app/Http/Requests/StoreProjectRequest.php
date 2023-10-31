@@ -25,6 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
+            'cover_image' => ['nullable', 'image', 'max:512'],
             'type_id' => ['nullable', 'exists:types,id'],
             'technologies' => ['nullable', 'exists:technologies,id'],
             'description' => ['required', 'string'],
@@ -37,6 +38,9 @@ class StoreProjectRequest extends FormRequest
         return [
             'title.required' => 'Il titolo è obbligatorio',
             'title.string' => 'Il titolo deve essere una stringa',
+
+            'cover_image.image' => 'Il file caricato deve essere un\' immagine',
+            'cover_image.max' => 'Il file caricato deve avere una dimensione inferiore a 512KB',
 
             'type_id.exists' => 'Il tipo inserito non è valido',
 
