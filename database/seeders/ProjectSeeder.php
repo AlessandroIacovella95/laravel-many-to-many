@@ -25,7 +25,7 @@ class ProjectSeeder extends Seeder
 
         $technology_ids = Technology::all()->pluck('id');
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $project = new Project();
             $project->type_id = $faker->randomElement($type_ids);
             $project->title = $faker->catchPhrase();
