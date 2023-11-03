@@ -32,20 +32,23 @@
                 @enderror
             </div>
 
-            <div class="col-12">
-                <div class="col-8">
-                    <label for="cover_image" class="from-label">Immagine</label>
-                    <input type="file" name="cover_image" id="cover_image"
-                        class="form-control @error('cover_image') is-invalid @enderror" value="{{ old('cover_image') }}">
-                    @error('cover_image')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="col-4">
-                    <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="" class="img_fluid"
-                        id="cover_image_preview">
+            <div class="col-12 mt-3">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="cover_image" class="from-label">Immagine</label>
+                        <input type="file" name="cover_image" id="cover_image"
+                            class="form-control @error('cover_image') is-invalid @enderror"
+                            value="{{ old('cover_image') }}">
+                        @error('cover_image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-4">
+                        <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="" class="img-fluid"
+                            id="cover_image_preview">
+                    </div>
                 </div>
             </div>
 
